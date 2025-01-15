@@ -84,8 +84,8 @@ all: main-build
 main-build: Telemetry2025.elf secondary-outputs
 
 # Tool invocations
-Telemetry2025.elf Telemetry2025.map: $(OBJS) $(USER_OBJS) C:\Users\samrb\STM32CubeIDE\workspace_1.16.0\Telemetry2025\STM32L496RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "Telemetry2025.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\samrb\STM32CubeIDE\workspace_1.16.0\Telemetry2025\STM32L496RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Telemetry2025.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Telemetry2025.elf Telemetry2025.map: $(OBJS) $(USER_OBJS) C:\Users\natha\STM32CubeIDE\solargators\telemetry-2025\Telemetry2025\STM32L496RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "Telemetry2025.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\natha\STM32CubeIDE\solargators\telemetry-2025\Telemetry2025\STM32L496RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Telemetry2025.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
