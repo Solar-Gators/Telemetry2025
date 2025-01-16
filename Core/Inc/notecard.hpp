@@ -39,6 +39,8 @@ body {
 
 #include "stm32l4xx_hal.h"
 
+#include "TESTFrame.h"
+
 #include <string.h>
 #include <cstdio>
 
@@ -50,15 +52,6 @@ body {
 
 #define MAX_FRAME_LEN 8
 
-// A testing placeholder for CANFrame
-struct TESTFrame {
-	uint32_t can_id;
-	uint8_t len;
-	uint8_t data[20];
-	uint8_t Unlock() {
-		return 1;
-	}
-};
 
 class Notecard {
 public:
