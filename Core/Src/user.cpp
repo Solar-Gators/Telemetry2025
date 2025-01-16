@@ -1,10 +1,12 @@
 #include "user.hpp"
 #include "notecard.hpp"
+#include "RFD900x.hpp"
 #include "main.h"
 
 // Main C++ loop
 void user_loop_cpp()
 {
+	RFD900x rfd900x(&huart1);
 	Notecard notecard(&huart2);
 
 	while(1) {
