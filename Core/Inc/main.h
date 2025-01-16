@@ -27,12 +27,11 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32l4xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-// Nate was here
-
+#include "globals.h"
+#include "user.hpp"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
