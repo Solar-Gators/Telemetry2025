@@ -44,11 +44,11 @@ body {
 #include <string.h>
 #include <cstdio>
 
-#define NOTE_PRODUCT_UID "edu.ufl.nathan.achinger:flare_telemetry"
+//#define NOTE_PRODUCT_UID "edu.ufl.nathan.achinger:flare_telemetry"
 
-#define NOTECARD_INIT "{\"req\":\"hub.set\",\"product\":\"NOTE_PRODUCT_UID\",\"mode\":\"continuous\"}"
+#define NOTECARD_INIT "{\"req\":\"hub.set\",\"product\":\"edu.ufl.nathan.achinger:flare_telemetry\",\"mode\":\"continuous\"}\n"
 #define JSON_CAN_FORMAT "{\"req\":\"note.add\",\"body\":{\"%u\":{\"frame_len\":%u,\"data\":%s}}}"
-#define NOTECARD_STATUS "{\"req\":\"card.status\"}"
+#define NOTECARD_STATUS "{\"req\":\"card.status\"}\n"
 
 #define MAX_FRAME_LEN 8
 
