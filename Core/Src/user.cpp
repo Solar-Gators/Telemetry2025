@@ -9,16 +9,6 @@ void user_loop_cpp()
 	RFD900x rfd900x(&huart1);
 	Notecard notecard(&huart2);
 
-	/*
-	uint8_t test_packet[] = {START_CHAR, 'h', 'e', 'l', 'l', 'o', '\0', END_CHAR};
-
-	while(1) {
-		HAL_UART_Transmit(&huart1, test_packet, sizeof(test_packet)/sizeof(test_packet[0]), HAL_MAX_DELAY);
-		HAL_Delay(500);
-	}
-	*/
-
-
 	// Create a test CAN frame
 	uint8_t data[] = {0x19, 0x39, 0x5, 0x19};
 	TESTFrame frame;
