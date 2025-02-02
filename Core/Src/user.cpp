@@ -25,10 +25,24 @@ void user_loop_cpp()
 
 	HAL_Delay(200);
 
-	uint8_t rx_buff[50];
-	HAL_UART_Receive(&huart2, rx_buff, 5, 1000);
+	char frame_data[] = "{\"req\":\"note.add\",\"body\":{\"CAN_ID\":{\"data\":\"[0xE4,0x3D,0x2A]\",\"len\":3}}}";
+	HAL_UART_Transmit(&huart2, frame_data, sizeof(frame_data)/sizeof(frame_data[0]), HAL_MAX_DELAY);
 
-	HAL_Delay(500);
+	/*
+	{
+	  "req": "note.add",
+	  "body": {
+		"CAN_ID": {
+		  "data": [0xE4, 0x3D, 0x2A],
+		  "len": 3
+		}
+	  }
+	}
+	*/
+
+
+	//uint8_t rx_buff[50];
+	//HAL_UART_Receive(&huart2, rx_buff, 5, 1000);
 
 	while(1) {
 		HAL_GPIO_TogglePin(OK_LED_GPIO_Port, OK_LED_Pin);
