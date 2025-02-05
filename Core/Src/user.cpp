@@ -20,13 +20,23 @@ void user_loop_cpp()
 	HAL_Delay(4000);
 
 	// Setup connection to Notehub
-	uint8_t setup[] = "{\"req\":\"hub.set\",\"product\":\"edu.ufl.nathan.achinger:flare_telemetry\",\"mode\":\"continuous\"}\n";
+	uint8_t setup[] = "{\"req\":\"hub.set\",\"product\":\"com.gmail.solargatorstelemetry:test\",\"mode\":\"continuous\"}\n";
 	HAL_UART_Transmit(&huart2, setup, sizeof(setup)/sizeof(setup[0]), HAL_MAX_DELAY);
 
 	HAL_Delay(200);
 
+	/*
 	char frame_data[] = "{\"req\":\"note.add\",\"body\":{\"CAN_ID\":{\"data\":\"[0xE4,0x3D,0x2A]\",\"len\":3}}}";
-	HAL_UART_Transmit(&huart2, frame_data, sizeof(frame_data)/sizeof(frame_data[0]), HAL_MAX_DELAY);
+	HAL_UART_Transmit(&huart2, (uint8_t*)frame_data, sizeof(frame_data)/sizeof(frame_data[0]), HAL_MAX_DELAY);
+	*/
+
+	uint8_t frame_test[] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+	char json_packet[100];
+	uint8_t packet_len = snprintf(json_packet, sizeof(json_packet), "{\"req\":\"note.add\",\"body\":{\"%u\":{\"data\":\"[%u,%u,%u,%u,%u,%u,%u]\",\"len\":7}}}",
+	frame_test[0], frame_test[1], frame_test[2], frame_test[3], frame_test[4], frame_test[5], frame_test[6], frame_test[7]);
+
+	HAL_UART_Transmit(&huart2, (uint8_t*)json_packet, packet_len, HAL_MAX_DELAY);
+
 
 	/*
 	{
