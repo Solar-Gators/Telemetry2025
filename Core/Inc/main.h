@@ -31,8 +31,6 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "globals.h"
-#include "user.hpp"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -60,6 +58,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define OK_LED_Pin GPIO_PIN_15
 #define OK_LED_GPIO_Port GPIOA
+#define ERROR_LED_Pin GPIO_PIN_10
+#define ERROR_LED_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
 
